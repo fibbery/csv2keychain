@@ -4,7 +4,7 @@ builds:
     goos:
       - darwin
     goarch:
-      - 386
+      - amd64
 checksum:
   name_template: 'checksums.txt'
 changelog:
@@ -15,11 +15,7 @@ changelog:
       - '^test:'
       - Merge pull request
       - Merge branch
-archives:
-  - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
-    replacements:
-      darwin: Darwin
-      386: i386
+
 brews:
   - github:
       owner: fibbery
@@ -28,7 +24,6 @@ brews:
       name: fibbery
       email: jiangnenghua1992@gmail.com
     folder: Formula
-    url_template: "https://github.com/fibbery/csv2keychain/releases/download/{{ .Tag }}/csv2keychain_Darwin_i386.tar.gz"
     install: |
       bin.install "csv2keychain"
       ...
