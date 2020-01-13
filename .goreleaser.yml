@@ -26,4 +26,3 @@ brews:
     folder: Formula
     install: |
       bin.install "csv2keychain"
-      ...
