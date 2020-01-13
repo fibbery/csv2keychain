@@ -1,0 +1,34 @@
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+    goarch:
+      - 386
+checksum:
+  name_template: 'checksums.txt'
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - Merge pull request
+      - Merge branch
+archives:
+  - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+    replacements:
+      darwin: Darwin
+      386: i386
+brews:
+  - github:
+      owner: fibbery
+      name: homebrew-tap
+    commit_author:
+      name: fibbery
+      email: jiangnenghua1992@gmail.com
+    folder: Formula
+    url_template: "https://github.com/fibbery/csv2keychain/releases/download/{{ .Tag }}/csv2keychain_Darwin_i386.tar.gz"
+    install: |
+      bin.install "csv2keychain"
+      ...
